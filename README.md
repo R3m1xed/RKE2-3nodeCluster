@@ -47,9 +47,9 @@ dnf install -y  nfs-utils cryptsetup iscsi-initiator-utils tar
 ## RKE2 server 1
 For this server run the following
 
-``
+```
 curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL=v1.26 INSTALL_RKE2_TYPE=server sh –
-``
+```
 
 After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses of each server.
 
@@ -58,19 +58,19 @@ After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses
 
 Now run:
 
-``
+```
 systemctl enable rke2-server –now
-``
+```
 
 This may take a minute or 2 to complete as this starts the process of configuring the new node
 After this has completed. Run: 
 
-``
+```
 #needed so you can use the kubectl api
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 ln -s $(find /var/lib/rancher/rke2/data/ -name kubectl) /usr/local/bin/kubectl 
 kubectl get nodes
-``
+```
 
 If it is not working, make sure to run the export KUBECONFIG line again and try again.
 The finish this off we need to grab the server token. This is located in /var/lib/rancher/rke2/server/token
@@ -78,9 +78,9 @@ Copy that whole token and save it to a notepad for the other 2 servers as you wi
 #RKE2 servers 1 and 2
 Run the following
 
-``
+```
 curl -sfL https://get.rke2.io | sh –
-``
+```
 
 After this create /etc/rancher/rke2/config.yaml and add the following in there
 
@@ -137,13 +137,13 @@ Repeat this on the other server
 *** installing helm, rancher and certmanager
 Helm should be installed on machines, we can run the following on all servers to install helm
 
-``
+```
 curl -#L https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-``
+```
 
 On 1 of rke2 servers run the following
 
-``
+```
 *** adds repos
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 helm repo add jetstack https://charts.jetstack.io
@@ -151,7 +151,7 @@ helm repo add jetstack https://charts.jetstack.io
 helm upgrade -i cert-manager jetstack/cert-manager -n cert-manager --create-namespace --set installCRDs=true
 *** install rancher – not change the hostname in the command to a name you would like to use
 helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace cattle-system --set hostname=rancher.linuxezy.net --set bootstrapPassword=RKE2isawesome --set replicas=1
-``
+```
 
 Now make sure to create a dns record or modify your hosts file to of the rancher hostname to point to the load balancer (192.168.1.100)
 
