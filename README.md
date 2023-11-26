@@ -53,16 +53,9 @@ curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL=v1.26 INSTALL_RKE2_TYPE=ser
 
 After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses of each server.
 
-``
-![image](https://github.com/R3m1xed/RKE2-3nodeCluster/assets/80881749/9917852c-102d-481a-a22b-1c2b838082d9)
 
-tls-san:
--	192.168.1.100
--	192.168.1.101
--	192.168.1.102
--	192.168.1.103
+![image](https://github.com/R3m1xed/RKE2-3nodeCluster/assets/80881749/f1133285-07f5-4427-95b9-e93fa460e57b)
 
-``
 Now run:
 
 ``
@@ -91,17 +84,8 @@ curl -sfL https://get.rke2.io | sh –
 
 After this create /etc/rancher/rke2/config.yaml and add the following in there
 
-``
+![image](https://github.com/R3m1xed/RKE2-3nodeCluster/assets/80881749/9917852c-102d-481a-a22b-1c2b838082d9)
 
-token: (from the first server)
-server: https://192.168.1.100:9345 # this is the load balancers ip
-tls-san:
--- 192.168.1.100
---	192.168.1.101
---	192.168.1.102
---	192.168.1.103
-
-``
 Now what we need to do is edit the systemd service that runs this as will not check config file that we created. Modify /usr/lib/systemd/system/rke2-server.service. In particular, the only line we editing in the file is the “ExecStart”
 
 ``
