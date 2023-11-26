@@ -144,10 +144,10 @@ curl -#L https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | b
 On 1 of rke2 servers run the following
 
 ```
-*** adds repos
+## adds repos
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 helm repo add jetstack https://charts.jetstack.io
-*** install cert manager
+## install cert manager
 helm upgrade -i cert-manager jetstack/cert-manager -n cert-manager --create-namespace --set installCRDs=true
 *** install rancher – not change the hostname in the command to a name you would like to use
 helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace cattle-system --set hostname=rancher.linuxezy.net --set bootstrapPassword=RKE2isawesome --set replicas=1
@@ -155,7 +155,7 @@ helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace ca
 
 Now make sure to create a dns record or modify your hosts file to of the rancher hostname to point to the load balancer (192.168.1.100)
 
-#Troubleshooting tips
+# Troubleshooting tips
 1.	Rke service not starting or failing:
 After you have installed rke2, if starting service has not gone well. You will need to reboot your server first as I’ve found it holds up port 9345
 Run rke2 server -c /location/of/config.yaml. This will help greatly and telling you where it is getting stuck.
