@@ -88,7 +88,7 @@ After this create /etc/rancher/rke2/config.yaml and add the following in there
 
 Now what we need to do is edit the systemd service that runs this as will not check config file that we created. Modify /usr/lib/systemd/system/rke2-server.service. In particular, the only line we editing in the file is the “ExecStart”
 
-``
+```
 
 [Unit]
 Description=Rancher Kubernetes Engine v2 (server)
@@ -120,7 +120,7 @@ ExecStartPre=-/sbin/modprobe overlay
 ExecStart=/usr/bin/rke2 server -c /etc/rancher/rke2/config.yaml
 ExecStopPost=-/bin/sh -c "systemd-cgls /system.slice/%n | grep -Eo '[0-9]+ (containerd|kubelet)' | awk '{print $1}' | xargs -r kill"
 
-``
+```
 
 Now run systemctl start rke2-server
 Note: if this takes more than 5 minutes and forever hangs, cancel it, reboot that machine and run rke2 server -c /etc/rancher/rke2/config.yaml and find where it is getting stuck
