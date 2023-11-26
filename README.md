@@ -8,8 +8,14 @@ I hope this guide helps
 
 ``
 Nginx Load balancer = 192.168.1.100
+``
+``
 RKE2-server1 = 192.168.1.101
+``
+``
 RKE2-server2 = 192.168.1.102
+``
+``
 RKE2-server3 = 192.168.1.103
 ``
 
