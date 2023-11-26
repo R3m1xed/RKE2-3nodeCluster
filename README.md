@@ -149,7 +149,7 @@ helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 helm repo add jetstack https://charts.jetstack.io
 ## install cert manager
 helm upgrade -i cert-manager jetstack/cert-manager -n cert-manager --create-namespace --set installCRDs=true
-*** install rancher – not change the hostname in the command to a name you would like to use
+## install rancher – not change the hostname in the command to a name you would like to use
 helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace cattle-system --set hostname=rancher.linuxezy.net --set bootstrapPassword=RKE2isawesome --set replicas=1
 ```
 
