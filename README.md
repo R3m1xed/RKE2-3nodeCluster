@@ -54,6 +54,7 @@ curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL=v1.26 INSTALL_RKE2_TYPE=ser
 After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses of each server.
 
 ``
+![image](https://github.com/R3m1xed/RKE2-3nodeCluster/assets/80881749/9917852c-102d-481a-a22b-1c2b838082d9)
 
 tls-san:
 -	192.168.1.100
