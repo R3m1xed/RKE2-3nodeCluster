@@ -126,11 +126,11 @@ Now run systemctl start rke2-server
 Note: if this takes more than 5 minutes and forever hangs, cancel it, reboot that machine and run rke2 server -c /etc/rancher/rke2/config.yaml and find where it is getting stuck
 If it has gone through with no errors run the following and check to make sure your new node is appearing with the same roles as the first node
 
-``
+```
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 ln -s $(find /var/lib/rancher/rke2/data/ -name kubectl) /usr/local/bin/kubectl 
 kubectl get nodes
-``
+```
 
 Repeat this on the other server
 
