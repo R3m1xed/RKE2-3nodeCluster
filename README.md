@@ -4,7 +4,7 @@ I was unable to find a guide on how to do this with 3 master,control-plane,etcd.
 This guide was created using Rocky linux 9.3, but should work with any linux distro as a base OS without major changes
 I hope this guide helps
 
-# Arctiecture
+# Architecture
 
 ```
 Nginx Load balancer = 192.168.1.100
