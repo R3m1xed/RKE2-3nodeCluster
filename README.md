@@ -32,6 +32,7 @@ In the directory above, I have made a sample config file, if you copy that and p
 If you are comfortable using your own load balancer feel free to do it, but it is important especially for the setting up the cluster, that ports 6443 and 9345 are able to be load balanced for connecting the cluster otherwise you will have issues and it will not connect.
 I have added in http and https there too for the next steps so you can see rancher or any other app you wish to add the local cluster using those ports.
 
+
 ## ALL RKE2 servers
 
 I recommend turning off the firewall on the initial setup and then refining it afterwards as Kubernetes has a lot of ports and finding out which ports you need will be a lot of work.
@@ -42,7 +43,7 @@ You do not need to turn off selinux, the install works well with it.
 dnf update -y
 dnf install -y  nfs-utils cryptsetup iscsi-initiator-utils tar
 
-## RKE2 server 1
+# RKE2 server 1
 For this server run the following
 
 ```
@@ -73,7 +74,8 @@ kubectl get nodes
 If it is not working, make sure to run the export KUBECONFIG line again and try again.
 The finish this off we need to grab the server token. This is located in /var/lib/rancher/rke2/server/token
 Copy that whole token and save it to a notepad for the other 2 servers as you will need it to join cluster
-#RKE2 servers 1 and 2
+
+# RKE2 servers 1 and 2
 Run the following
 
 ```
