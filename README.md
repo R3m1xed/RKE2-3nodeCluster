@@ -6,18 +6,15 @@ I hope this guide helps
 
 # Arctiecture
 
-``
+```
 Nginx Load balancer = 192.168.1.100
-``
-``
+
 RKE2-server1 = 192.168.1.101
-``
-``
+
 RKE2-server2 = 192.168.1.102
-``
-``
+
 RKE2-server3 = 192.168.1.103
-``
+```
 
 ## Rational 
 this architecture is so that if one of the control planes does go down, we can still query the api and have High availability.
@@ -36,6 +33,7 @@ If you are comfortable using your own load balancer feel free to do it, but it i
 I have added in http and https there too for the next steps so you can see rancher or any other app you wish to add the local cluster using those ports.
 
 ## ALL RKE2 servers
+
 I recommend turning off the firewall on the initial setup and then refining it afterwards as Kubernetes has a lot of ports and finding out which ports you need will be a lot of work.
 You can find documentation on port requirements
 Requirements | RKE2
