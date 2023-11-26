@@ -48,6 +48,7 @@ curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL=v1.26 INSTALL_RKE2_TYPE=ser
 After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses of each server.
 
 ``
+
 tls-san:
 -	192.168.1.100
 -	192.168.1.101
@@ -84,13 +85,14 @@ curl -sfL https://get.rke2.io | sh –
 After this create /etc/rancher/rke2/config.yaml and add the following in there
 
 ``
+
 token: (from the first server)
 server: https://192.168.1.100:9345 # this is the load balancers ip
 tls-san:
--	192.168.1.100
--	192.168.1.101
--	192.168.1.102
--	192.168.1.103
+-- 192.168.1.100
+--	192.168.1.101
+--	192.168.1.102
+--	192.168.1.103
 
 ``
 Now what we need to do is edit the systemd service that runs this as will not check config file that we created. Modify /usr/lib/systemd/system/rke2-server.service. In particular, the only line we editing in the file is the “ExecStart”
@@ -139,7 +141,7 @@ kubectl get nodes
 
 Repeat this on the other server
 
-## installing helm, rancher and certmanager
+*** installing helm, rancher and certmanager
 Helm should be installed on machines, we can run the following on all servers to install helm
 
 ``
@@ -149,12 +151,12 @@ curl -#L https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | b
 On 1 of rke2 servers run the following
 
 ``
-# adds repos
+*** adds repos
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 helm repo add jetstack https://charts.jetstack.io
-# install cert manager
+*** install cert manager
 helm upgrade -i cert-manager jetstack/cert-manager -n cert-manager --create-namespace --set installCRDs=true
-# install rancher – not change the hostname in the command to a name you would like to use
+*** install rancher – not change the hostname in the command to a name you would like to use
 helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace cattle-system --set hostname=rancher.linuxezy.net --set bootstrapPassword=RKE2isawesome --set replicas=1
 ``
 
