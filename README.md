@@ -17,8 +17,8 @@ RKE2-server3 = 192.168.1.103
 ```
 
 ## Rational 
-this architecture is so that if one of the control planes does go down, we can still query the api and have High availability.
-If you run only 1 control-plane and that fails, you will no longer have access to the kubectl API
+This architecture is so that if one of the control planes does go down, we can still query the api and have High availability.
+If you run only 1 control-plane and that fails, you will no longer have access to the kubectl API.
 
 #Nginx load balancer – 192.168.1.100
 On the server run the following
