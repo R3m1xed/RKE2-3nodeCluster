@@ -133,7 +133,7 @@ kubectl get nodes
 
 Repeat this on the other server
 
-__ installing helm, rancher and certmanager __
+***Installing helm, rancher and certmanager***
 
 Helm should be installed on machines, we can run the following on all servers to install helm
 
