@@ -156,7 +156,7 @@ helm upgrade -i rancher rancher-latest/rancher --create-namespace --namespace ca
 Now make sure to create a dns record or modify your hosts file to of the rancher hostname to point to the load balancer (192.168.1.100)
 
 # Troubleshooting tips
-1.	Rke service not starting or failing:
+1.	RKE2 service not starting or failing:
 After you have installed rke2, if starting service has not gone well. You will need to reboot your server first as I’ve found it holds up port 9345
 Run rke2 server -c /location/of/config.yaml. This will help greatly and telling you where it is getting stuck.
 
