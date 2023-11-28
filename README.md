@@ -23,11 +23,11 @@ If you run only 1 control-plane and that fails, you will no longer have access t
 #Nginx load balancer – 192.168.1.100
 On the server run the following
 
-``
+```
 dnf update -y
 dnf intally -y nginx nginx-mod-stream
 
-``
+```
 In the directory above, I have made a sample config file, if you copy that and paste it into /etc/nginx/nginx.conf
 If you are comfortable using your own load balancer feel free to do it, but it is important especially for the setting up the cluster, that ports 6443 and 9345 are able to be load balanced for connecting the cluster otherwise you will have issues and it will not connect.
 I have added in http and https there too for the next steps so you can see rancher or any other app you wish to add the local cluster using those ports.
