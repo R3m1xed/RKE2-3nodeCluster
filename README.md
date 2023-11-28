@@ -71,7 +71,7 @@ kubectl get nodes
 ```
 
 If it is not working, make sure to run the export KUBECONFIG line again and try again.
-The finish this off we need to grab the server token. This is located in /var/lib/rancher/rke2/server/token
+The finish this off we need to grab the server token. This is located in ***/var/lib/rancher/rke2/server/token***
 Copy that whole token and save it to a notepad for the other 2 servers as you will need it to join cluster
 
 # RKE2 servers 1 and 2
