@@ -46,7 +46,7 @@ dnf install -y  nfs-utils cryptsetup iscsi-initiator-utils tar
 For this server run the following
 
 ```
-curl -sfL https://get.rke2.io | INSTALL_RKE2_CHANNEL=v1.26 INSTALL_RKE2_TYPE=server sh –
+curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=server sh –
 ```
 
 After it installs, create /etc/rancher/rke2/config.yaml and add all ip addresses of each server.
