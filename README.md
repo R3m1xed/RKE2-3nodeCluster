@@ -36,8 +36,8 @@ I have added in http and https there too for the next steps so you can see ranch
 
 I recommend turning off the firewall on the initial setup and then refining it afterwards as Kubernetes has a lot of ports and finding out which ports you need will be a lot of work.
 You can find documentation on port requirements
-Requirements | RKE2
-Port Requirements | Rancher
+[Requirements | RKE2](https://docs.rke2.io/install/requirements)
+[Port Requirements | Rancher](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/installation-requirements/port-requirements#:~:text=Ports%20for%20Rancher%20Server%20Nodes%20on%20RKE2%E2%80%8B&text=The%20RKE2%20server%20needs%20port,port%2010250%20on%20each%20node.)
 You do not need to turn off selinux, the install works well with it.
 ```
 dnf update -y
