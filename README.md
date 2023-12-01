@@ -38,10 +38,11 @@ I recommend turning off the firewall on the initial setup and then refining it a
 You can find documentation on port requirements
 Requirements | RKE2
 Port Requirements | Rancher
-You do not need to turn off selinux, the install works well with it. 
+You do not need to turn off selinux, the install works well with it.
+```
 dnf update -y
 dnf install -y  nfs-utils cryptsetup iscsi-initiator-utils tar
-
+```
 # RKE2 server 1
 For this server run the following
 
