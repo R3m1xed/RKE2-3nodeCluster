@@ -86,7 +86,7 @@ After this create /etc/rancher/rke2/config.yaml and add the following in there
 
 ![image](https://github.com/R3m1xed/RKE2-3nodeCluster/assets/80881749/9917852c-102d-481a-a22b-1c2b838082d9)
 
-Now what we need to do is edit the systemd service that runs this as will not check config file that we created. Modify /usr/lib/systemd/system/rke2-server.service. In particular, the only line we editing in the file is the “ExecStart”
+Now what we need to do is edit the systemd service that runs this as will not check config file that we created. Modify **/usr/lib/systemd/system/rke2-server.service**. In particular, the only line we editing in the file is the “ExecStart”
 
 ```
 
@@ -122,7 +122,7 @@ ExecStopPost=-/bin/sh -c "systemd-cgls /system.slice/%n | grep -Eo '[0-9]+ (cont
 
 ```
 
-Now run systemctl start rke2-server
+Now run **systemctl start rke2-server**
 Note: if this takes more than 5 minutes and forever hangs, cancel it, reboot that machine and run rke2 server -c /etc/rancher/rke2/config.yaml and find where it is getting stuck
 If it has gone through with no errors run the following and check to make sure your new node is appearing with the same roles as the first node
 
